@@ -45,7 +45,6 @@ export class KINGMAN_ACCOUNT_BACKUPS {
                 await this.sleep((Req.data.retry_after * 1000) * 2);
                 Req = await axios.get(`${this.api}/channels/${channelID}/messages?limit=100`, this.headers).catch(e=> { return e });
             };
-            console.log(Req.status)
             fetched_messages.push(...Req.data);
             let LastMessage = Req.data.slice(-1)[0].id;
             for (let i = 0; i < Math.ceil(all_messages / 100) - 1; i++) {
@@ -58,7 +57,6 @@ export class KINGMAN_ACCOUNT_BACKUPS {
                     await this.sleep((Req.data.retry_after * 1000) * 2);
                     Req = await axios.get(`${this.api}/channels/${channelID}/messages?before=${LastMessage}&limit=100`, this.headers).catch(e=> { return e });
                 };
-                console.log(Req.status)
                 fetched_messages.push(...Req.data);
                 LastMessage = Req.data.slice(-1)[0].id;
                 await this.sleep(200);
