@@ -27,6 +27,47 @@ class KINGMAN_ACCOUNT_BACKUPS {
             }
         })
     };
+    async MessagesFetcher(channelID: string){
+        return new Promise<{
+            id: string, type: number, content: string, channel_id: string, author: { id: string, username: string, avatar: string, discriminator: string , public_flags: string, avatar_decoration?: string }
+            attachments: [any], embeds: [any], mentions: [any], mention_roles: [any], pinned: boolean, mention_everyone: boolean, tts: boolean, timestamp: string,  edited_timestamp?: string,
+            flags: number, components: [any]
+        }[]>(async(resolve, reject) => {            
+            let all_messages = await this.MessagesAmoute(channelID);
+            let fetched_messages = [];
+            let Req = await axios.get(`${this.api}/channels/${channelID}/messages?limit=100`, this.headers).catch(e=> { return e });
+            
+            if(Req.status === 202){
+                await this.sleep(Req.data.retry_after * 1000);
+                Req = await axios.get(`${this.api}/channels/${channelID}/messages?limit=100`, this.headers).catch(e=> { return e });
+            };
+            if(Req.status === 429){
+                await this.sleep((Req.data.retry_after * 1000) * 2);
+                Req = await axios.get(`${this.api}/channels/${channelID}/messages?limit=100`, this.headers).catch(e=> { return e });
+            };
+            console.log(Req.status)
+            fetched_messages.push(...Req.data);
+            let LastMessage = Req.data.slice(-1)[0].id;
+            for (let i = 0; i < Math.ceil(all_messages / 100) - 1; i++) {
+                Req = await axios.get(`${this.api}/channels/${channelID}/messages?before=${LastMessage}&limit=100`, this.headers).catch(e=> { return e });
+                if(Req.status === 202){
+                    await this.sleep(Req.data.retry_after * 1000);
+                    Req = await axios.get(`${this.api}/channels/${channelID}/messages?before=${LastMessage}&limit=100`, this.headers).catch(e=> { return e });
+                };
+                if(Req.status === 429){
+                    await this.sleep((Req.data.retry_after * 1000) * 2);
+                    Req = await axios.get(`${this.api}/channels/${channelID}/messages?before=${LastMessage}&limit=100`, this.headers).catch(e=> { return e });
+                };
+                console.log(Req.status)
+                fetched_messages.push(...Req.data);
+                LastMessage = Req.data.slice(-1)[0].id;
+                await this.sleep(200);
+            }
+            const all_ids = fetched_messages.map((d)=> d.id);
+            fetched_messages = fetched_messages.filter(({ id }, index)=> !all_ids.includes(id, index + 1))
+            return resolve(fetched_messages);
+        });
+    };
     async getAllDMS(){
         return new Promise<{
             id: string, type: number, last_message_id: string, flags: number, recipients: [{ id: string, username: string, avatar: string, bot?: boolean }]
