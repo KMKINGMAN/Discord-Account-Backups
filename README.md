@@ -1,0 +1,50 @@
+# Discord Account's Backup 
+
+![](https://media.discordapp.net/attachments/892734013993787394/1013691405039849533/Logo.gif)
+
+![](https://img.shields.io/github/stars/kmkingman/Discord-Account-Backups.svg) ![](https://img.shields.io/github/forks/kmkingman/Discord-Account-Backups.svg) ![](https://img.shields.io/github/tag/kmkingman/Discord-Account-Backups.svg) ![](https://img.shields.io/github/release/kmkingman/Discord-Account-Backups.svg) ![](https://img.shields.io/github/issues/kmkingman/Discord-Account-Backups.svg) 
+
+**Table of Contents**
+
+[TOCM]
+
+[TOC]
+
+### Features
+
+- save all friends list in json file
+- save all dms messages 
+- save account data like `email` | `Phone Numb`
+- Discord API V9
+
+### Install
+this app created using TypeScipt so you need to intall Node.js in you machine [Node.js](https://nodejs.org/en/download/)
+clone the project and go to Discord-Account-Backups
+```shell
+git clone https://github.com/KMKINGMAN/Discord-Account-Backups
+cd Discord-Account-Backups
+```
+install all pakages
+```shell
+npm install
+```
+run the project
+```shell
+npm start
+```
+
+### Images
+
+> Output Files
+
+![](https://media.discordapp.net/attachments/892734013993787394/1013690155950948352/unknown.png)
+> APP
+
+![](https://media.discordapp.net/attachments/892734013993787394/1013690647032631349/unknown.png)
+
+### Support
+if you need any help just visit my [Discord Server](https://discord.gg/kmcodes)
+or in instagram [instagram](https://instagram.com/km.kingman/)
+
+### Credits
+All rights reserved to the developer, Muhammad Rafat Kurkar
