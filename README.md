@@ -1,14 +1,12 @@
-# Discord Account's Backup 
+<img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="KINGMAN DEV" src="https://i.top4top.io/p_1965sxw291.png">  
 
-![](https://media.discordapp.net/attachments/892734013993787394/1013691405039849533/Logo.gif)
+# Discord Account's Backup 
 
 ![](https://img.shields.io/github/stars/kmkingman/Discord-Account-Backups.svg) ![](https://img.shields.io/github/forks/kmkingman/Discord-Account-Backups.svg) ![](https://img.shields.io/github/tag/kmkingman/Discord-Account-Backups.svg) ![](https://img.shields.io/github/release/kmkingman/Discord-Account-Backups.svg) ![](https://img.shields.io/github/issues/kmkingman/Discord-Account-Backups.svg) 
 
-**Table of Contents**
-
-[TOCM]
-
-[TOC]
+<br>
+<br>
+<br>
 
 ### Features
 
@@ -18,6 +16,7 @@
 - Discord API V9
 
 ### Install
+
 this app created using TypeScipt so you need to intall Node.js in you machine [Node.js](https://nodejs.org/en/download/)
 clone the project and go to Discord-Account-Backups
 ```shell
