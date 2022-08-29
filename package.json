@@ -1,24 +1,29 @@
 {
   "name": "kingman-accounts-backup",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Create A Backup For Your Discord Account's",
   "main": "src/index.ts",
-  "repository": "https://github.com/kmkingman/discord-account-backup",
+  "repository": "https://github.com/KMKINGMAN/Discord-Account-Backups",
   "author": "Muhammad Rafat Kurakr",
   "license": "MIT",
   "dependencies": {
-    "@types/axios": "^0.14.0",
-    "@types/cli-progress": "^3.11.0",
-    "@types/inquirer": "^9.0.1",
     "axios": "^0.27.2",
+    "chalk": "^4.1.2",
     "cli-progress": "^3.11.2",
+    "figlet": "^1.5.2",
     "fs": "^0.0.1-security",
-    "inquirer": "^9.1.0",
+    "gradient-string": "^2.0.1",
+    "inquirer": "^8.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.2"
   },
   "devDependencies": {
-    "@types/node": "^18.7.13"
+    "@types/gradient-string": "^1.1.2",
+    "@types/node": "^18.7.13",
+    "@types/axios": "^0.14.0",
+    "@types/cli-progress": "^3.11.0",
+    "@types/figlet": "^1.5.5",
+    "@types/inquirer": "^9.0.1"
   },
   "scripts": {
     "start": "ts-node ."
