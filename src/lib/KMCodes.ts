@@ -10,16 +10,14 @@ export class KINGMAN_ACCOUNT_BACKUPS {
     async MessagesAmoute(channelID: string){
         return new Promise<number>(async(resolve, reject) => {            
             try {
-                let Req = await axios.get(`${this.api}/channels/${channelID}/messages/search?min_id=88392440217600000`, this.headers).catch(e=> { return e });
+                let Req = await axios.get(`${this.api}/channels/${channelID}/messages/search?min_id=88392440217600000`, this.headers).catch(e=> { return e.response });
                 if(Req.status == 202){
                     await this.sleep(Req.data.retry_after * 1000);
-                    Req = await axios.get(`${this.api}/channels/${channelID}/messages/search?min_id=88392440217600000`, this.headers).catch(e=> { return e });
+                    Req = await axios.get(`${this.api}/channels/${channelID}/messages/search?min_id=88392440217600000`, this.headers).catch(e=> { return e.response });
                 }
-                if(Req.status !== 200){
-                    if(Req.status === 429){
-                        await this.sleep((Req.data.retry_after * 1000) * 2);
-                        Req = await axios.get(`${this.api}/channels/${channelID}/messages/search?min_id=88392440217600000`, this.headers).catch(e=> { return e });
-                    }
+                if(Req.status === 429){
+                    await this.sleep((Req.data.retry_after * 1000) * 2);
+                    Req = await axios.get(`${this.api}/channels/${channelID}/messages/search?min_id=88392440217600000`, this.headers).catch(e=> { return e.response });
                 }
                 return resolve(Req.data ? Req.data.total_results ? Req.data.total_results: -1 : -1);
             } catch (error) {
