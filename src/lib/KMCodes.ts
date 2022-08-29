@@ -27,6 +27,13 @@ class KINGMAN_ACCOUNT_BACKUPS {
             }
         })
     };
+    async getRelationShip(){
+        return new Promise<{id: string, type: number, nickname?: string, user: {id: string, username: string, avatar: string, avatar_decoration: string, discriminator: string, public_flags: number  }}[]>(async(resolve, reject) => {
+            let Req = await axios.get(`${this.api}/users/@me/relationships`, this.headers).catch(e=> { return undefined });
+            if(!Req) return reject({ message: "faild" });
+            return resolve(Req?.data);
+        })
+    }
     async sleep(ms: number){
         return new Promise((resolve) => setTimeout(resolve, ms));
     };
