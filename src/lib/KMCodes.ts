@@ -97,6 +97,18 @@ export class KINGMAN_ACCOUNT_BACKUPS {
             if(!Req) return reject({ message: "faild" });
             return resolve(Req?.data);
         })
+    };
+    async getAccountInfo(){
+        return new Promise<{
+            id: string, username: string, avatar: string, avatar_decoration?: string,
+            discriminator: string, public_flags: number, flags: number, purchased_flags: number,
+            banner?: string, banner_color?: number, accent_color?: number, bio: string,  locale: string,
+            nsfw_allowed?: boolean, mfa_enabled: boolean, email?: string, verified: boolean, phone?: boolean
+        }>(async(resolve, reject) => {
+            let Req = await axios.get("https://discordapp.com/api/users/@me", this.headers).catch(e=> { return undefined});
+            if(!Req) return reject({ message: "invaild token" });
+            return resolve(Req?.data)
+        })
     }
     async sleep(ms: number){
         return new Promise((resolve) => setTimeout(resolve, ms));
