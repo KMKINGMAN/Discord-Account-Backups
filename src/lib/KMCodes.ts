@@ -37,6 +37,13 @@ class KINGMAN_ACCOUNT_BACKUPS {
             return resolve(Req?.data)
         })
     };
+    async GetChannelName(channelID: string){
+        let Req = await axios.get(`${this.api}/channels/${channelID}`, this.headers);
+        if(Req.data.name){
+            return Req.data.name
+        };
+        return `${Req.data.recipients[0].username}#${Req.data.recipients[0].discriminator}`;
+    }
     async getRelationShip(){
         return new Promise<{id: string, type: number, nickname?: string, user: {id: string, username: string, avatar: string, avatar_decoration: string, discriminator: string, public_flags: number  }}[]>(async(resolve, reject) => {
             let Req = await axios.get(`${this.api}/users/@me/relationships`, this.headers).catch(e=> { return undefined });
