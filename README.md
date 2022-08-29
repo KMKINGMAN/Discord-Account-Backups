@@ -5,8 +5,9 @@
 ![](https://img.shields.io/github/stars/kmkingman/Discord-Account-Backups.svg) ![](https://img.shields.io/github/forks/kmkingman/Discord-Account-Backups.svg) ![](https://img.shields.io/github/tag/kmkingman/Discord-Account-Backups.svg) ![](https://img.shields.io/github/release/kmkingman/Discord-Account-Backups.svg) ![](https://img.shields.io/github/issues/kmkingman/Discord-Account-Backups.svg) 
 
 <br>
-<br>
-<br>
+
+### About This App
+Node.js App written in the TypeScript language to copy Discord Account's, so it saves friends information, messages, and account information, and it stores these data in files `json` files.
 
 ### Features
 
