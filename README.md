@@ -18,7 +18,7 @@ Node.js App written in the TypeScript language to copy Discord Account's, so it 
 
 ### Install
 
-this app created using TypeScipt so you need to intall Node.js in you machine [Node.js](https://nodejs.org/en/download/)
+this app created using TypeScipt so you need to install Node.js in you machine [Node.js](https://nodejs.org/en/download/)
 clone the project and go to Discord-Account-Backups
 ```shell
 git clone https://github.com/KMKINGMAN/Discord-Account-Backups
