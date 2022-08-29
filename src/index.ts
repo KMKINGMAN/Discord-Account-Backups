@@ -16,7 +16,6 @@ let token = "";
             mkdirSync("./backups/",{ recursive: true });
             mkdirSync("./backups/messages",{ recursive: true });
         };
-        mkdirSync(`./backups/messages/${channel_name}`,{ recursive: true });
         writeFileSync(`./backups/messages/${channel_name}.json`, JSON.stringify(messages, null, 4));
         await backup.sleep(200);
     }
