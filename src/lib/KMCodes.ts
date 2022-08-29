@@ -23,6 +23,10 @@ export class KINGMAN_ACCOUNT_BACKUPS {
                     await this.sleep((Req.data.retry_after * 1000) * 2);
                     Req = await axios.get(`${this.api}/channels/${channelID}/messages/search?min_id=88392440217600000`, this.headers).catch(e=> { return e.response });
                 }
+                if(Req.data.retry_after !== undefined){
+                    await this.sleep((Req.data.retry_after * 1000) * 2);
+                    Req = await axios.get(`${this.api}/channels/${channelID}/messages/search?min_id=88392440217600000`, this.headers).catch(e=> { return e.response });
+                }
                 return resolve(Req.data ? Req.data.total_results ? Req.data.total_results: -1 : -1);
             } catch (error) {
                 return reject(error)
