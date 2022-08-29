@@ -1,5 +1,5 @@
 import axios from "axios";
-class KINGMAN_ACCOUNT_BACKUPS {
+export class KINGMAN_ACCOUNT_BACKUPS {
     private token: string;
     private api: string = "https://discord.com/api/v9"
     private headers: { headers: { authorization: string, "content-type": "application/json" } }
