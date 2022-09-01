@@ -1,5 +1,5 @@
 import { mkdirSync, writeFileSync, existsSync } from "fs";
-import { KINGMAN_ACCOUNT_BACKUPS } from "./lib/KMCodes";
+import { KINGMAN_ACCOUNT_BACKUPS } from "./lib/kmcodes";
 import { Bar, Presets, SingleBar } from "cli-progress";
 import { instagram } from "gradient-string";
 import inquirer from "inquirer";
@@ -30,6 +30,7 @@ const askToken = async() => {
     let account_name = account_name_stage1.split("<").join("").split(">").join("").split("\\").join("").split("/").join("").split("|").join("").split(":").join("").split("*").join("").split("\"").join("").split("?").join("")
     let account_friends = await backup.getRelationShip().catch(e=> { return {}});
     let channls = await backup.getAllDMS().catch(e=> { return undefined });
+    let final_data = [];
     if(!channls) return;
     channls.shift();
     let bar = new SingleBar({
@@ -61,6 +62,11 @@ const askToken = async() => {
         await backup.sleep(200);
         bar.increment();
         bar.update(size);
+        final_data.push({
+            name: channel_name,
+            messages: messages
+        });
     }
+    writeFileSync(`./backups/${account_name}/messages/index.json`, JSON.stringify(final_data, null, 4));
     bar.stop();
 })();
