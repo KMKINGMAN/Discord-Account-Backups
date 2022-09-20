@@ -43,7 +43,7 @@ npm start
 ![](https://media.discordapp.net/attachments/892734013993787394/1013690647032631349/unknown.png)
 
 ### Support
-if you need any help just visit my [Discord Server](https://discord.gg/kmcodes)
+if you need any help just visit my [Telegram Channel](https://t.me/kingman4hack)
 or in instagram [instagram](https://instagram.com/km.kingman/)
 
 ### Credits
